@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using AuthenticationAndAuthorize.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,5 +13,8 @@ namespace AuthenticationAndAuthorize.Data
             : base(options)
         {
         }
+
+
+        public DbSet<Person> persons { get; set; }
     }
 }

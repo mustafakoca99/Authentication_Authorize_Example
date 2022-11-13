@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AuthenticationAndAuthorize.Areas.Identity.Data;
+using AuthenticationAndAuthorize.Data;
+using AuthenticationAndAuthorize.Filters;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using AuthenticationAndAuthorize.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using AuthenticationAndAuthorize.Areas.Identity.Data;
 
 namespace AuthenticationAndAuthorize
 {
@@ -50,6 +45,9 @@ namespace AuthenticationAndAuthorize
             services.AddScoped<IUserClaimsPrincipalFactory<IdentityUser>,
                 ApplicationUserClaimsPrincipalFactory
                 >();
+
+            services.AddScoped<TimeTakenFilter>();
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
